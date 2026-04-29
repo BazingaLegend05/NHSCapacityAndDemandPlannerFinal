@@ -1,6 +1,6 @@
 html{
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 0px;
+    margin-right: 0px;
     margin-bottom: 20px;
 }
 h1, h2{
@@ -8,6 +8,15 @@ h1, h2{
 }
 .navbar{
     background-color: rgb(0, 94, 184);
+    max-height: 50px;
+    min-width: 100%;
+    padding-top: 0;
+    padding-bottom: 0;
+    align-items: center;
+}
+.nav-logo{
+    max-height: 40px;
+    object-fit: contain;
 }
 #LogInSection{
     border: 2px solid rgb(0, 48, 135);
