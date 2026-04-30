@@ -1,3 +1,5 @@
+To run this application locally you need to have the docker app, this can be found at [Docker Desktop Download](https://www.docker.com/products/docker-desktop/).
+
 # NHSCapacityAndDemandPlannerFinal
 *For Editors*
 1. Clone repository on vscode, or if you already have a repository open from a previous session, pull contents from github.
