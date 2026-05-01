@@ -5,7 +5,7 @@ To run this application locally you need to have the docker app, this can be fou
 1. Clone repository on vscode, or if you already have a repository open from a previous session, pull contents from github.
 2. If it is not already running in the container, click the search bar and click 'reopen in container'.
 3. Once in the container you will see options at the bottom right window where you can view problems, outputs, debug console, terminal and ports.
-4. Before editing, go to the backup.sql, select all and rightclick and press run, this will restore the database for you.
+4. Before editing, go to the 8080 port and open myphpadmin, log in with db, mariadb, mariadb then click the mariadb on the left and then go to import and choose the backup.sql file
 5. To preview work done, hover over the internet icon next to port 8000 and press open in browser, add /filename to the end of the url to view specific pages.
 6. To preview the database in myphpadmin, do the same for port 8080.
 7. To add changes to the database, in the mysql dropdown in the bottom left, right click the db and click new query. Type your sql commands, highlight them then right click and press run. You can also edit it in the phpmyadmin port.
