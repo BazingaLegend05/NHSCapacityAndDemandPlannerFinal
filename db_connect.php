@@ -1,17 +1,16 @@
 <?php
-$host = 'db';
-$dbname = 'mariadb';
-$username = 'mariadb';
-$password = 'mariadb';
+    $host = 'db';
+    $dbname = 'mariadb';
+    $username = 'mariadb';
+    $password = 'mariadb';
 
-try {
-    $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
-    $pdo = new PDO($dsn, $username, $password);
-    
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    echo "Connected successfully to the database";
-} catch (PDOException $e) {
-    echo "Connection failed: " . $e->getMessage();
-}
+    try {
+        $dsn = "mysql:host=$host;dbname=$dbname;charset=utf8mb4";
+        $pdo = new PDO($dsn, $username, $password);
+        
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } 
+    catch (PDOException $e) {
+        echo "Connection failed: " . $e->getMessage();
+    }
 ?>
