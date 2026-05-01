@@ -1,17 +1,12 @@
-FROM mcr.microsoft.com/devcontainers/php:3-8.5-trixie
+FROM php:8.2-apache
 
-# Install MariaDB client
+# Install MariaDB client AND Git
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get install -y mariadb-client \ 
+    && apt-get install -y mariadb-client git \
     && apt-get clean -y && rm -rf /var/lib/apt/lists/*
 
 # Install php-mysql driver
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# [Optional] Uncomment this section to install additional OS packages.
-# RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-#     && apt-get -y install --no-install-recommends <your-package-list-here>
-
-# [Optional] Uncomment this line to install global node packages.
-# RUN su vscode -c "source /usr/local/share/nvm/nvm.sh && npm install -g <your-package-here>" 2>&1
-
+# Give Apache ownership
+RUN chown -R www-data:www-data /var/www/html && chmod -R 755 /var/www/html
