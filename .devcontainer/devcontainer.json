@@ -3,7 +3,7 @@
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "app",
 	"workspaceFolder": "/var/www/html", // Change this to match Apache
-	"forwardPorts": [80, 3307],
+	"forwardPorts": [8000, 3307, 8080],
 	"portsAttributes": {
 		"80": { "label": "Web Server", "onAutoForward": "openBrowser" }
 	}

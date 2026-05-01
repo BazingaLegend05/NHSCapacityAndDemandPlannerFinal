@@ -24,5 +24,16 @@ services:
     ports:
       - "3307:3306"
   
+  phpmyadmin:
+    image: phpmyadmin:latest
+    restart: unless-stopped
+    ports:
+      - "8080:80"
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
+    depends_on:
+      - db
+  
 volumes:
   mariadb-data: {}
