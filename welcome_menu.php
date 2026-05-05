@@ -35,10 +35,20 @@
                             to view and edit clinician schedules, or Statistics Dashboard to view progress on yearly targets.</p>
                     </div>
                     <div class="container-fluid d-flex justify-content-center p-5">
-                        <input type="submit" id="Button" value="Schedule">
+                        <button onclick="sendToSchedule()" id="Button" >Schedule</button>
+                        <script>
+                            function sendToSchedule() {
+                                window.location.href = 'Schedule.php';
+                            }
+                        </script>
                     </div>
                     <div class="container-fluid d-flex justify-content-center p-5">
-                        <input type="submit" id="Button" value="Dashboard">
+                        <button onclick="sendToDashboard()" id="Button">Dashboard</button>
+                        <script>
+                            function sendToDashboard() {
+                                window.location.href = 'Dahsboard.php';
+                            }
+                        </script>
                     </div>
                 </div>
             </div>
