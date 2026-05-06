@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ..:/var/www/html:cached
-    working_dir: /var/www/html  # Add this line
+    working_dir: /var/www/html
     ports:
       - "8000:80"
 

@@ -131,6 +131,7 @@
             });
 
             function uploadFile() {
+                alert("uploadFile triggered");
                 const file = fileInput.files[0];
 
                 if (!file) {
