@@ -4,6 +4,9 @@
         echo "You are here by mistake";
         exit();
     }
+    else{
+        $Role = $_SESSION['Role'];
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +67,24 @@
                     </div>
                 </div>
                 <div class="col-md-4">
-                    <button>Upload a file</button>
+                    <?php if ($Role === 'admin'): ?>
+                        <button onclick='openUploadPanel()'class="btn btn-primary">Upload a file</button>
+                        <script></script>
+                    <?php endif; ?>
+                    <div id="uploadPanel" class="upload-panel" style="display:none;">
+                        <div class="upload-box">
+                            <h5>Upload Excel File</h5>
+
+                            <div id="dropZone" class="drop-zone">
+                                Drag & drop Excel file here<br>or click to select
+                                <input type="file" id="fileInput" accept=".xlsx,.xls" hidden>
+                            </div>
+
+                            <button class="btn btn-success mt-2" onclick="uploadFile()">Upload</button>
+                            <button class="btn btn-secondary mt-2" onclick="closeUploadPanel()">Cancel</button>
+                        </div>
+                    </div>
+                    
                 </div>
                 </div>
             </div>
@@ -81,5 +101,63 @@
                 });
             });
         </script>
+        <script>
+            function openUploadPanel() {
+                document.getElementById("uploadPanel").style.display = "block";
+            }
+
+            function closeUploadPanel() {
+                document.getElementById("uploadPanel").style.display = "none";
+            }
+
+            const dropZone = document.getElementById("dropZone");
+            const fileInput = document.getElementById("fileInput");
+
+            dropZone.addEventListener("click", () => fileInput.click());
+
+            dropZone.addEventListener("dragover", (e) => {
+                e.preventDefault();
+                dropZone.style.background = "#eef";
+            });
+
+            dropZone.addEventListener("dragleave", () => {
+                dropZone.style.background = "white";
+            });
+
+            dropZone.addEventListener("drop", (e) => {
+                e.preventDefault();
+                fileInput.files = e.dataTransfer.files;
+                dropZone.style.background = "white";
+            });
+
+            function uploadFile() {
+                const file = fileInput.files[0];
+
+                if (!file) {
+                    alert("Please select a file");
+                    return;
+                }
+
+                // Frontend validation
+                if (!file.name.endsWith(".xlsx") && !file.name.endsWith(".xls")) {
+                    alert("Only Excel files allowed");
+                    return;
+                }
+
+                const formData = new FormData();
+                formData.append("file", file);
+
+                fetch("upload.php", {
+                    method: "POST",
+                    body: formData
+                })
+                .then(res => res.text())
+                .then(data => {
+                    alert(data);
+                    closeUploadPanel();
+                })
+                .catch(err => console.error(err));
+            }
+            </script>
     </body>
 </html>

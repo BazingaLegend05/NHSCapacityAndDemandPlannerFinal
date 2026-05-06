@@ -19,7 +19,7 @@
                 $_SESSION['LoggedIn'] = 1;
                 $row = $sql->fetch();
                 $_SESSION['UserID'] = $row['UserID']; 
-                
+                $_SESSION['Role'] = $row['Role'];
                 header("Location: welcome_menu.php");
                 exit();
             }

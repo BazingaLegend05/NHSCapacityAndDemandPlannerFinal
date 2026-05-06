@@ -27,6 +27,7 @@ CREATE TABLE `users_table` (
   `UserID` int(11) NOT NULL,
   `Username` varchar(50) DEFAULT NULL,
   `Password` varchar(50) DEFAULT NULL,
+  `Role` varchar(10) NOT NULL DEFAULT 'user',
   `LoggedIn` tinyint(1) DEFAULT 0,
   PRIMARY KEY (`UserID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
@@ -40,8 +41,8 @@ SET @OLD_AUTOCOMMIT=@@AUTOCOMMIT, @@AUTOCOMMIT=0;
 LOCK TABLES `users_table` WRITE;
 /*!40000 ALTER TABLE `users_table` DISABLE KEYS */;
 INSERT INTO `users_table` VALUES
-(1,'admin1','admin1',0),
-(2,'user1','user1',0);
+(1,'admin1','admin1','admin',0),
+(2,'user1','user1','user',0);
 /*!40000 ALTER TABLE `users_table` ENABLE KEYS */;
 UNLOCK TABLES;
 COMMIT;
@@ -56,4 +57,4 @@ SET AUTOCOMMIT=@OLD_AUTOCOMMIT;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*M!100616 SET NOTE_VERBOSITY=@OLD_NOTE_VERBOSITY */;
 
--- Dump completed on 2026-04-30 18:17:01
+-- Dump completed on 2026-05-06 15:38:56
