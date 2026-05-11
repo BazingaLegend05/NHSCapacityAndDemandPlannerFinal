@@ -46,7 +46,7 @@
                         <button onclick="sendToDashboard()" id="Button">Dashboard</button>
                         <script>
                             function sendToDashboard() {
-                                window.location.href = 'Dahsboard.php';
+                                window.location.href = 'Dashboard.php';
                             }
                         </script>
                     </div>
